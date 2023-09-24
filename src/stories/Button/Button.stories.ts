@@ -7,12 +7,9 @@ const meta = {
   title: 'Example/Button',
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
 } satisfies Meta<typeof Button>;
 
@@ -20,29 +17,30 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const Danger: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    label: 'Danger',
+    variant: "danger"
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    label: 'Success',
+    variant: "success",
   },
 };
 
-export const Large: Story = {
+export const Transparent: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    label: 'Transparent',
+    variant: "transparent",
   },
 };
 
-export const Small: Story = {
+export const Default: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    label: 'Default',
+    variant: "default",
   },
 };

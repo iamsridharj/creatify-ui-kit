@@ -1,37 +1,56 @@
 import { styled } from "styled-components";
+import StyledThemeProvider from "../../Theme/StyledThemeProvider";
+import { CustomTheme } from "../../Theme/theme";
 
-const StyledButton = styled("button")`
-  color: white;
-  background-color: blue;
+type variantType = 'transparent' | 'success' | 'danger' | 'default'
+
+const getVariantBasedColor = (variant: variantType, theme: CustomTheme ) => {
+  switch(variant){
+    case "success":
+      return theme.colors.$green5;
+    case "danger":
+      return theme.colors.$red5;
+    case "transparent":
+      return "transparent";
+    default:
+      return theme.colors.$blue2
+  }
+}
+
+
+const StyledButton = styled("button")<{ variant: variantType  }>`
+  border: none;
+  padding:15px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: ${({theme}) => theme.colors.$textColor};
+  background-color: ${({variant, theme}) => `${getVariantBasedColor(variant, theme)}`};
 `;
+
+
 interface ButtonProps {
-
-  primary?: boolean;
-
   size?: 'small' | 'medium' | 'large';
-
+  variant?: 'transparent' | 'success' | 'danger' | 'default';
   label: string;
-
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
+
 export const Button = ({
-  primary = false,
-  size = 'medium',
+  variant = "default",
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
-    <StyledButton
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      {...props}
-    >
-      {label}
-    </StyledButton>
+    <StyledThemeProvider>
+      <StyledButton
+        type="button"
+        variant={variant}
+        {...props}
+      >
+        {label}
+      </StyledButton>
+    </StyledThemeProvider>
+
   );
 };
