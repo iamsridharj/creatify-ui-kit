@@ -17,13 +17,22 @@ const getVariantBasedColor = (variant: variantType, theme: CustomTheme ) => {
   }
 }
 
+const getVariantBasedTextColor = (variant: variantType, theme: CustomTheme ) => {
+  switch(variant){
+    case "transparent":
+      return theme.colors.$textColorBlack;
+    default:
+      return theme.colors.$textColorWhite
+  }
+}
+
 
 const StyledButton = styled("button")<{ variant: variantType  }>`
   border: none;
   padding:15px;
   border-radius: 8px;
   cursor: pointer;
-  color: ${({theme}) => theme.colors.$textColor};
+  color: ${({variant, theme}) => getVariantBasedTextColor(variant, theme)};
   background-color: ${({variant, theme}) => `${getVariantBasedColor(variant, theme)}`};
 `;
 
