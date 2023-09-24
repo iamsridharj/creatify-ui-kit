@@ -1,6 +1,6 @@
 {
   "name": "creatify-ui-kit",
-  "private": "false",
+  "private": false,
   "version": "0.0.11",
   "type": "module",
   "scripts": {
