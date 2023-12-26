@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { styled } from "styled-components";
 import StyledThemeProvider from "../../Theme/StyledThemeProvider";
 
@@ -7,7 +7,6 @@ const StyledCard = styled("section")<{ enableShadow: boolean  }>`
   flex-direction: column;
   min-width: 308px;
   min-height: 380px;
-  border-radius: 3px;
   box-shadow: ${({enableShadow}) => enableShadow ? `4px 4px` : ''};
   border: ${({ theme }) => `2px solid ${theme.colors.$borderColor}; `};
 ` 
@@ -26,7 +25,7 @@ const Content = styled("div")`
 
 const Footer = styled("aside")``;
 
-interface CardProps {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   headerContent?: ReactNode;
   bodyContent: ReactNode;
   footerContent?: ReactNode;
@@ -34,10 +33,11 @@ interface CardProps {
 }
 
 
-export function Card({bodyContent, headerContent, footerContent, enableShadow = false}: CardProps) {
+
+export function Card({bodyContent, headerContent, footerContent, enableShadow = false, ...props}: CardProps) {
   return (
     <StyledThemeProvider>
-        <StyledCard enableShadow={enableShadow}>
+        <StyledCard {...props} enableShadow={enableShadow}>
           {headerContent && <Header>{headerContent}</Header>}
           <Content>{bodyContent}</Content>
           {footerContent && <Footer>{footerContent}</Footer>}
