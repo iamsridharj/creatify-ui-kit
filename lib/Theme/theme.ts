@@ -15,7 +15,7 @@ export interface CustomTheme {
 }
 
 
-const theme: CustomTheme = {
+export const theme: CustomTheme = {
     colors: {
         $blue10: "#4B49AC",
         $blue3: "#7DA0FA",
@@ -29,4 +29,4 @@ const theme: CustomTheme = {
         $textColorWhite: "#ffffff",
     }
 }
-export default theme;
+;
