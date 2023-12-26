@@ -9,8 +9,8 @@ export interface CustomTheme {
         $green5: string;
         $purple: string;
         $borderColor: string;
-        $textColorBlack: string
-        $textColorWhite: string
+        $black: string
+        $white: string
     }
 }
 
@@ -25,7 +25,7 @@ export const theme: CustomTheme = {
         $green5: "#76c893",
         $purple: "#7f6cb9",
         $borderColor: "#3b3b3b",
-        $textColorBlack: "#4E4E4E",
-        $textColorWhite: "#ffffff",
+        $black: "#4E4E4E",
+        $white: "#ffffff",
     }
 };

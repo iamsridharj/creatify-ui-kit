@@ -15,7 +15,7 @@ const getVariantBasedPrimaryColor = (variant: variantType, theme: CustomTheme, i
     case "danger":
       return theme.colors.$red5;
     case "transparent":
-      return isHover ? theme.colors.$textColorBlack : "transparent";
+      return isHover ? theme.colors.$black : "transparent";
     default:
       return theme.colors.$purple;
   }
@@ -24,9 +24,9 @@ const getVariantBasedPrimaryColor = (variant: variantType, theme: CustomTheme, i
 const getVariantBasedTextColor = (variant: variantType, theme: CustomTheme): string => {
   switch (variant) {
     case "transparent":
-      return theme.colors.$textColorBlack;
+      return theme.colors.$black;
     default:
-      return theme.colors.$textColorWhite;
+      return theme.colors.$white;
   }
 };
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../../../lib/components/Buttons';
+import { Button } from '../../../lib/main';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -12,7 +12,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant:{
-      
+  
     }
   },
 } satisfies Meta<typeof Button>;
