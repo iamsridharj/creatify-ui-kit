@@ -4,17 +4,13 @@ import { Avatar } from '../../../lib/main';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Example/Avatar',
+  title: 'Design System/Display/Avatar',
   component: Avatar,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant:{
-  
-    }
-  },
+  argTypes: {},
 } satisfies Meta<typeof Avatar>;
 
 export default meta;

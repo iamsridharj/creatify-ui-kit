@@ -27,19 +27,19 @@ const Footer = styled("aside")``;
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   headerContent?: ReactNode;
-  bodyContent: ReactNode;
+  children: ReactNode;
   footerContent?: ReactNode;
   enableShadow?: boolean;
 }
 
 
 
-export function Card({bodyContent, headerContent, footerContent, enableShadow = false, ...props}: CardProps) {
+export function Card({children, headerContent, footerContent, enableShadow = true, ...props}: CardProps) {
   return (
     <StyledThemeProvider>
         <StyledCard {...props} enableShadow={enableShadow}>
           {headerContent && <Header>{headerContent}</Header>}
-          <Content>{bodyContent}</Content>
+          <Content>{children}</Content>
           {footerContent && <Footer>{footerContent}</Footer>}
         </StyledCard>
     </StyledThemeProvider>

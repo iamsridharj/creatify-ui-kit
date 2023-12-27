@@ -28,7 +28,7 @@ const getInputSize = (variant?: variant): string => {
     }
   };
 
-const StyledInput = styled("input")<{variant: variant, hasTransparentStyle: boolean}>`
+const StyledTextArea = styled("textarea")<{variant: variant, hasTransparentStyle: boolean}>`
     padding: 5px;
     box-shadow: ${({hasTransparentStyle}) => hasTransparentStyle ? "none" : `4px 4px`};
     border: ${({ theme, hasTransparentStyle }) => hasTransparentStyle ? "none" : `2px solid ${theme.colors.$borderColor}; `};
@@ -39,19 +39,25 @@ const StyledInput = styled("input")<{variant: variant, hasTransparentStyle: bool
         color: transparent;
       }
     }
-
 `
 
-interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextBoxProps extends InputHTMLAttributes<HTMLTextAreaElement> {
     variant?: variant;
     hasTransparentStyle?: boolean
     placeholder?: string,
 }
 
-export const TextBox = ({variant = DEFAULT_SIZE, placeholder, hasTransparentStyle=false, ...props}: TextBoxProps) => {
+export const TextArea = ({variant = DEFAULT_SIZE, placeholder, hasTransparentStyle=false, ...props}: TextBoxProps) => {
   return (
     <StyledThemeProvider>
-        <StyledInput {...props} variant={variant} hasTransparentStyle={hasTransparentStyle} placeholder={placeholder || "Search Anything"}/>
+        <StyledTextArea 
+          variant={variant} 
+          hasTransparentStyle={hasTransparentStyle} 
+          placeholder={placeholder || "Search Anything"} 
+          rows={4} 
+          cols={50}
+          {...props} 
+        />
     </StyledThemeProvider>
   )
 }

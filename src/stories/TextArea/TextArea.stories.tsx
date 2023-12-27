@@ -1,22 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextBox } from '../../../lib/main';
+import { TextArea } from '../../../lib/main';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Design System/Input/TextBox',
-  component: TextBox,
+  title: 'Design System/Input/TextArea',
+  component: TextArea,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
-} satisfies Meta<typeof TextBox>;
+  argTypes: {
+    hasTransparentStyle:{
+      control: 'boolean',
+    }
+  },
+} satisfies Meta<typeof TextArea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const TextBoxPreview: Story = {
+export const TextAreaPreview: Story = {
   args: {},
 };

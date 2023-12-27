@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import StyledThemeProvider from "../../Theme/StyledThemeProvider";
 import { CustomTheme } from "../../Theme/theme";
+import { HTMLAttributes } from "react";
 
 type variantType = 'transparent' | 'success' | 'danger' | 'default';
 type size = 'large' | 'small' | 'default'
