@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import StyledThemeProvider from "../../Theme/StyledThemeProvider";
 import { CustomTheme } from "../../Theme/theme";
-import { HTMLAttributes } from "react";
 
 type variantType = 'transparent' | 'success' | 'danger' | 'default';
 type size = 'large' | 'small' | 'default'
@@ -70,13 +69,13 @@ const StyledButton = styled.button<{ variant: variantType, size: size  }>`
 interface ButtonProps {
   size?: size;
   variant?: variantType;
-  label: string;
+  children: React.ReactNode;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Button = ({
   variant = DEFAULT_VARIANT,
-  label = '',
+  children,
   onClick: onButtonClick,
   size = DEFAULT_SIZE,
   ...props
@@ -91,7 +90,7 @@ export const Button = ({
         size={size}
         {...props}
       >
-        {label}
+        {children}
       </StyledButton>
     </StyledThemeProvider>
   );

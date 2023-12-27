@@ -24,28 +24,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Default',
+    children: 'Default',
     variant: "default",
   },
 };
 
 export const Danger: Story = {
   args: {
-    label: 'Danger',
+    children: 'Danger',
     variant: "danger"
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Success',
+    children: 'Success',
     variant: "success",
   },
 };
 
 export const Transparent: Story = {
   args: {
-    label: 'Transparent',
+    children: 'Transparent',
     variant: "transparent",
   },
 };

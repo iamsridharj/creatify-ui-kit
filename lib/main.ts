@@ -7,3 +7,5 @@ export { TextBox } from "./components/TextBox";
 export { TextArea } from "./components/TextArea";
 export { Image } from "./components/Image";
 export { Tabs } from "./components/Tabs";
+export { Modal } from "./components/Modal";
+
