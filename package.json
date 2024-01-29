@@ -1,7 +1,7 @@
 {
   "name": "creatify-ui-kit",
   "private": false,
-  "version": "0.0.13",
+  "version": "0.0.14",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,10 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "push": "npm version patch && git push",
+    "push-minor": "npm version minor && git push",
+    "push-major": "npm version major && git push"
   },
   "dependencies": {
     "react": "^18.2.0",
