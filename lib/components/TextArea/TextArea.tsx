@@ -2,10 +2,10 @@ import { InputHTMLAttributes } from "react";
 import { styled } from "styled-components";
 import StyledThemeProvider from "../../Theme/StyledThemeProvider";
 
-type variant = 'large' | 'small' | 'default';
-const DEFAULT_SIZE: variant = 'default';
+type Variant = 'large' | 'small' | 'default';
+const DEFAULT_SIZE: Variant = 'default';
 
-const getInputSize = (variant?: variant): string => {
+const getInputSize = (variant?: Variant): string => {
   switch (variant) {
     case 'small':
       return `
@@ -28,7 +28,7 @@ const getInputSize = (variant?: variant): string => {
   }
 };
 
-const StyledTextArea = styled("textarea") <{ variant: variant, hasTransparentStyle: boolean }>`
+const StyledTextArea = styled("textarea") <{ variant: Variant; hasTransparentStyle: boolean }>`
     padding: 5px;
     box-shadow: ${({ hasTransparentStyle }) => hasTransparentStyle ? "none" : `4px 4px`};
     border: ${({ theme, hasTransparentStyle }) => hasTransparentStyle ? "none" : `2px solid ${theme.colors.$borderColor}; `};
@@ -42,12 +42,13 @@ const StyledTextArea = styled("textarea") <{ variant: variant, hasTransparentSty
 `
 
 interface TextBoxProps extends InputHTMLAttributes<HTMLTextAreaElement> {
-  variant?: variant;
+  variant?: Variant;
   hasTransparentStyle?: boolean
-  placeholder?: string,
+  placeholder?: string;
+  enableShadow?: boolean;
 }
 
-export const TextArea = ({ variant = DEFAULT_SIZE, placeholder, hasTransparentStyle = false, ...props }: TextBoxProps) => {
+export const TextArea = ({ variant = DEFAULT_SIZE, placeholder, hasTransparentStyle = false, enableShadow = false, ...props }: TextBoxProps) => {
   return (
     <StyledThemeProvider>
       <StyledTextArea

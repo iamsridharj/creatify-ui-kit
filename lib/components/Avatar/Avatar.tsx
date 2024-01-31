@@ -11,7 +11,7 @@ interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   enableShadow?: boolean;
 }
 
-export const Avatar = ({ enableShadow = true, ...props }: AvatarProps) => {
+export const Avatar = ({ enableShadow = false, ...props }: AvatarProps) => {
   return (
     <StyledThemeProvider>
       <StyledImage enableShadow={enableShadow} {...props} />

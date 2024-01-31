@@ -14,7 +14,7 @@ interface ImageProps extends HtmlHTMLAttributes<HTMLImageElement> {
   enableShadow?: boolean;
 }
 
-export const Image = ({ imageUrl = "https://image-service-sridhar.s3.us-east-1.amazonaws.com/1703618921140.jpeg", enableShadow = true, ...props }: ImageProps) => {
+export const Image = ({ imageUrl = "https://image-service-sridhar.s3.us-east-1.amazonaws.com/1703618921140.jpeg", enableShadow = false, ...props }: ImageProps) => {
   return (
     <StyledThemeProvider>
       <StyledImage enableShadow={enableShadow} src={imageUrl} {...props} />
