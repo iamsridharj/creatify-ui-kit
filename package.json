@@ -10,9 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "push": "rm -rf dist && npm run build && npm version patch",
-    "push-minor": "rm -rf dist && npm run build && npm version minor",
-    "push-major": "rm -rf dist && npm run build && npm version major"
+    "push": "rm -rf dist && npm run build && npm version patch && npm publish",
+    "push-minor": "rm -rf dist && npm run build && npm version minor && npm publish",
+    "push-major": "rm -rf dist && npm run build && npm version major && npm publish"
   },
   "dependencies": {
     "react": "^18.2.0",
