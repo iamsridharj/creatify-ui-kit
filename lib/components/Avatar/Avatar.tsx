@@ -9,15 +9,14 @@ const StyledImage = styled("img") <{ enableShadow: boolean }>`
     box-shadow: ${({ enableShadow }) => enableShadow ? `2px 2px` : ''};
 `
 
-interface AvatarProps {
-  enableShadow?: boolean
-  imageUrl?: string
+interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  enableShadow?: boolean;
 }
 
-export const Avatar = ({ enableShadow = true, imageUrl }: AvatarProps) => {
+export const Avatar = ({ enableShadow = true, ...props }: AvatarProps) => {
   return (
     <StyledThemeProvider>
-      <StyledImage enableShadow={enableShadow} src={imageUrl} />
+      <StyledImage enableShadow={enableShadow} {...props} />
     </StyledThemeProvider>
   )
 }
