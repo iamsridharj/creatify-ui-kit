@@ -6,31 +6,31 @@ type variant = 'large' | 'small' | 'default';
 const DEFAULT_SIZE: variant = 'default';
 
 const getInputSize = (variant?: variant): string => {
-    switch (variant) {
-      case 'small':
-        return `
+  switch (variant) {
+    case 'small':
+      return `
           min-width: 4rem;
           min-height: 1.5rem;
           font-size: 0.8rem;
         `;
-      case 'large':
-        return `
+    case 'large':
+      return `
           min-width: 8rem;
           min-height: 3rem;
           font-size: 1.1rem;
         `;
-      default:
-        return `
+    default:
+      return `
           min-width: 6rem;
           min-height: 2rem;
           font-size: 1rem;
         `;
-    }
-  };
+  }
+};
 
-const StyledTextArea = styled("textarea")<{variant: variant, hasTransparentStyle: boolean}>`
+const StyledTextArea = styled("textarea") <{ variant: variant, hasTransparentStyle: boolean }>`
     padding: 5px;
-    box-shadow: ${({hasTransparentStyle}) => hasTransparentStyle ? "none" : `4px 4px`};
+    box-shadow: ${({ hasTransparentStyle }) => hasTransparentStyle ? "none" : `4px 4px`};
     border: ${({ theme, hasTransparentStyle }) => hasTransparentStyle ? "none" : `2px solid ${theme.colors.$borderColor}; `};
     ${({ variant }) => getInputSize(variant)}
     &:focus {
@@ -42,22 +42,21 @@ const StyledTextArea = styled("textarea")<{variant: variant, hasTransparentStyle
 `
 
 interface TextBoxProps extends InputHTMLAttributes<HTMLTextAreaElement> {
-    variant?: variant;
-    hasTransparentStyle?: boolean
-    placeholder?: string,
+  variant?: variant;
+  hasTransparentStyle?: boolean
+  placeholder?: string,
 }
 
-export const TextArea = ({variant = DEFAULT_SIZE, placeholder, hasTransparentStyle=false, ...props}: TextBoxProps) => {
+export const TextArea = ({ variant = DEFAULT_SIZE, placeholder, hasTransparentStyle = false, ...props }: TextBoxProps) => {
   return (
     <StyledThemeProvider>
-        <StyledTextArea 
-          variant={variant} 
-          hasTransparentStyle={hasTransparentStyle} 
-          placeholder={placeholder || "Search Anything"} 
-          rows={4} 
-          cols={50}
-          {...props} 
-        />
+      <StyledTextArea
+        variant={variant}
+        hasTransparentStyle={hasTransparentStyle}
+        placeholder={placeholder || "Search Anything"}
+        rows={4}
+        {...props}
+      />
     </StyledThemeProvider>
   )
 }
