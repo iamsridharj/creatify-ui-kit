@@ -55,7 +55,6 @@ export const TextArea = ({ variant = DEFAULT_SIZE, placeholder, hasTransparentSt
         variant={variant}
         hasTransparentStyle={hasTransparentStyle}
         placeholder={placeholder || "Search Anything"}
-        rows={4}
         {...props}
       />
     </StyledThemeProvider>
